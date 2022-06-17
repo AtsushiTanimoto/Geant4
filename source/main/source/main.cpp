@@ -1,8 +1,8 @@
-#include "ExG4DetectorConstruction01.hh"
-#include "ExG4PhysicsList00.hh"
-#include "ExG4ActionInitialization01.hh"
+#include "ActionInitialization.hpp"
 #include "G4RunManagerFactory.hh"
 #include "G4UImanager.hh"
+#include "GeometryConstruction.hpp"
+#include "PhysicsList.hpp"
 
 
 int main()
@@ -11,9 +11,9 @@ int main()
     auto runManager = G4RunManagerFactory::CreateRunManager();
     
     // set mandatory initialization classes
-    runManager->SetUserInitialization(new ExG4DetectorConstruction01);
-    runManager->SetUserInitialization(new ExG4PhysicsList00);
-    runManager->SetUserInitialization(new ExG4ActionInitialization01);
+    runManager->SetUserInitialization(new ActionInitialization);
+    runManager->SetUserInitialization(new DetectorConstruction);
+    runManager->SetUserInitialization(new PhysicsList);
     
     // initialize G4 kernel
     runManager->Initialize();
