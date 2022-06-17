@@ -5,3 +5,5 @@ project(monaco)
 add_library(monaco_main SHARED
             source/main.cpp
             source/PrimaryGeneratorAction.cpp)
+
+add_executable(main.out source/main.cpp)
